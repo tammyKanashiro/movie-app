@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="searchWrapper">
+                <form id="form">
+                    <i class="fas fa-search"></i>
+                    <input type="text" name="searchBar" id="searchBar" autocomplete="off">
+                </form>
+            </div>
+
+            <div class="filter-container">
+                <div class="filter-slider">
+                    <p class="header-title">Year</p>
+                
+                    <div class="filter-wrapper">
+                        <p><span id="y1">1985</span></p>
+                        
+                        <div class="slider-container">
+                            <div class="multi-range-slider">
+                                <input type="range" id="input-left" min="1970" max="2021" value="1990">
+                                <input type="range" id="input-right" min="1970" max="2021" value="2000">
+
+                                <div class="slider">
+                                    <div class="track"></div>
+                                    <div class="range"></div>
+                                    <div class="thumb left"></div>
+                                    <div class="thumb right"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p><span id="y2">2000</span></p>
+                    </div>
+                </div>
+
+                <div class="type">
+                    <p class="header-title">Type</p>
+
+                    <div class="type-op">
+                        <div class="op-field">
+                            <input type="radio" name="type" id="any" checked>
+                            <label for="any">Any</label>
+                        </div>
+                        <div class="op-field">
+                            <input type="radio" name="type" id="movies">
+                            <label for="movies">Movies</label>
+                        </div>
+                        <div class="op-field">
+                            <input type="radio" name="type" id="series">
+                            <label for="series">Series</label>
+                        </div>
+                        <div class="op-field">
+                            <input type="radio" name="type" id="episode">
+                            <label for="episode">Episodes</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <div class="main-body">
+                <div class="info-wrapper">
+                   <img id="info-img" src="../img.jpg" >
+
+                    <div class="info-body">
+                        <div class="watchlist">
+                            <i class="far fa-bookmark empty"></i>
+                            <i class="fas fa-bookmark full"></i>
+                            <p>Watchlist</p>
+                            <a class="watchlist-link"></a>
+                        </div>
+                        
+
+                        <div>
+                            <h1 id="info-title"></h1>
+
+                            <p>
+                                <span id="rated">-</span>
+                                <span id="year">-</span>
+                                -
+                                <span id="genre">-</span>
+                                -
+                                <span id="duration">-</span>
+                            </p>
+           
+                            <p id="actors">-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <p id="movie-desc">-</p>
+                </div>
+
+                <div class="rating-section">
+                    <div class="rating-wrapper">
+                        <p id="rating-imd">-</p>
+                        <p>Internet Movie Database</p>
+                    </div>
+                    <div class="rating-wrapper">
+                        <p id="rating-rt">-</p>
+                        <p>Rotten Tomatoes</p>
+                    </div>
+                    <div class="rating-wrapper">
+                        <p id="rating-m">-</p>
+                        <p>Metacritic</p>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="sidebar">
+                <p id="movies-qty"><span>No</span> Results</p>
+
+                <ul class="movie-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

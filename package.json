@@ -1,0 +1,20 @@
+{
+  "name": "movie-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-fetch": "^3.0.0",
+    "sass": "^1.42.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

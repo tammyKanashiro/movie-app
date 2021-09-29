@@ -1,0 +1,476 @@
+.header {
+    background-color: $custom_dark_gray;
+    padding: 15px 0;
+
+    .container {
+        max-width: 1450px;
+        padding: 0 10px;
+    }
+
+    .header-title {
+        text-transform: uppercase;
+        color: $custom_white;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .searchWrapper {
+        #form {
+            .fas {
+                color: $custom_white;
+                font-size: 22px;
+            }
+
+            #searchBar {
+                margin-bottom: 16px;
+
+                background-color: $custom_dark_gray;
+                border: none;
+                color: $custom_white;
+                font-size: 22px;
+            }
+        }
+    }
+
+    .filter-container {
+        // Double slider - Year
+        .filter-slider {
+            .filter-wrapper {
+                width: 260px;
+                display: flex;
+                align-items: center;
+
+                p {
+                    color: $custom_white;
+                }
+
+                .slider-container {
+                    width: 260px;
+                    position: relative;
+    
+                    .multi-range-slider {
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        width: 100%;
+        
+                        .slider {
+                            position: relative;
+                            z-index: 1;
+                            height: 7px;
+                            width: 100%;
+                            margin: 0 20px;
+        
+                            & > .track {
+                                position: absolute;
+                                z-index: 1;
+                                left: 0;
+                                right: 0;
+                                top: 0;
+                                bottom: 0;
+                                border-radius: 5px;
+                                background-color: $custom_white;
+                            }
+        
+                            & > .range {
+                                position: absolute;
+                                z-index: 2;
+                                left: 25%;
+                                right: 25%;
+                                top: 0;
+                                bottom: 0;
+                                border-radius: 5px;
+                                background-color: $custom_thumb_color;
+                            }
+        
+                            & > .thumb {
+                                position: absolute;
+                                top: 5px;
+                                z-index: 3;
+                                width: 15px;
+                                height: 15px;
+                                background-color: $custom_thumb_color;
+                                border-radius: 50%;
+        
+                                &.left {
+                                    left: 25%;
+                                    transform: translate(-13px, -10px);
+                                }
+        
+                                &.right {
+                                    right: 25%;
+                                    transform: translate(13px, -10px);
+                                }
+                            }
+        
+                        }
+        
+                        input[type=range] {
+                            position: absolute;
+                            pointer-events: none;
+                            -webkit-appearance: none;
+                            z-index: 2;
+                            height: 5px;
+                            width: 100%;
+                            opacity: 0;
+        
+                            &::-webkit-slider-thumb {
+                                pointer-events: all;
+                                width: 15px;
+                                height: 15px;
+                                border-radius: 0;
+                                border: 0 none;
+                                background-color: red;
+                                -webkit-appearance: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Movie Type
+        .type {
+            .type-op {
+                .op-field {
+                    margin: 16px 0;
+
+                    input {
+                        display: none;
+                    }
+
+                    label {
+                        color: $custom_white;
+                        letter-spacing: 0.5px;
+                        padding-left: 25px;
+                        
+
+                        
+                    }
+
+                    input[type="radio"] + label {
+                        position: relative;
+
+                        &::before {
+                            content: '';
+                            display: block;
+                            width: 15px;
+                            height: 15px;
+                            border: 2px solid $custom_white;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            margin: auto;
+                        }
+                    }
+
+                    input[type="radio"]:checked + label {
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            width: 7px;
+                            height: 7px;
+                            border: 2px solid $custom_white;
+                            background-color: $custom_white;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 4px;
+                            margin: auto;
+                        }
+                    }
+                }
+
+                @media screen and (min-width: 400px) {
+                    display: flex;
+
+
+                    .op-field+ .op-field {
+                        label {
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (min-width: 650px) {
+            display: flex;
+
+            .type {
+                margin-left: 15px;
+            }
+        }
+    }
+
+    @media screen and (min-width: 900px) {
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+
+.main {
+    .container {
+        .sidebar {
+            #movies-qty {
+                padding: 20px 40px;
+                text-transform: uppercase;
+            }
+
+            .movie-list {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                max-height: 30vh;
+                overflow-y: scroll;
+
+                .movieItem {
+                    display: flex;
+                    align-items: center;
+                    padding: 25px 40px;
+                    border-bottom: 1px solid $custom_border_color;
+                    position: relative;
+
+                    img {
+                        max-height: 80px;
+                        width: auto;
+                    }
+
+                    .movieItem-link {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                    }
+
+                    &.is-selected {
+                        background-color: $custom_light_gray;
+                    }
+
+                    & > div {
+                        margin-left: 15px;
+                        height: fit-content;
+
+                        .movie-title {
+                            font-size: 18px;
+                            margin: 0;
+                        }
+
+                        .movie-year {
+                            margin: 0;
+                            color: #b1b1b1;
+                        }
+                    }
+                }
+            }
+        }
+
+        .main-body {
+            padding-top: 35px;
+            
+            p {
+                font-size: 18px;
+            }
+
+            // Movie main information
+            .info-wrapper {
+                display: none;
+                padding-bottom: 25px;
+
+                &.is-open {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                img {
+                    max-height: 300px;
+                    object-fit: contain;
+                }
+
+                .info-body {
+                    margin-top: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    .watchlist {
+                        display: flex;
+                        border: 1px solid $custom_body_color;
+                        border-radius: 5px;
+                        width: fit-content;
+                        padding: 10px;
+                        margin: auto;
+                        position: relative;
+
+                        p {
+                            font-size: 22px;
+                            color:$custom_body_color;
+                            margin: 0 0 0 10px;
+                        }
+
+                        .watchlist-link {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        .fa-bookmark {
+                            font-size: 20px;
+                            height: fit-content;
+                            margin: auto;
+                            color: $custom_body_color;
+
+                            &.full {
+                                display: none;
+                            }
+                        }
+
+                        &.has-item {
+                            .fa-bookmark {
+                                &.empty {
+                                    display: none;
+                                }
+
+                                &.full {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+
+                    span.rated {
+                        padding: 0 7px;
+                        border: 1px solid $custom_body_color;
+                        border-radius: 5px;
+                    }
+                }
+
+                @media screen and (min-width: 520px) {
+                    &.is-open {
+                        flex-direction: row;
+                    }
+
+                    .info-body {
+                        margin-top: 0;
+                        margin-left: 20px;
+                        padding-right: 35px;
+
+                        .watchlist {
+                            margin-left: auto;
+                            margin-right: 0;
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+
+            // Movie description
+            .description {
+                border-top: 1px solid $custom_border_color;
+                border-bottom: 1px solid $custom_border_color;
+                display: none;
+
+                &.is-open {
+                    display: block;
+                }
+
+                p {
+                    padding-right: 35px;
+                }
+            }
+
+            // Movie ratings
+            .rating-section {
+                padding: 20px 0;
+                display: none;
+
+                &.is-open {
+                    display: block;
+                }
+
+                .rating-wrapper {
+                    padding: 15px 0;
+
+                    p {
+                        text-align: center;
+
+                        &:first-child {
+                            margin-top: 0;
+                        }
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    & + .rating-wrapper {
+                        border-top: 1px solid $custom_border_color;
+                    }
+                }
+
+                @media screen and (min-width: 520px) {
+                    &.is-open {
+                        display: flex;
+                    }
+
+                    .rating-wrapper {
+                        width: 33.333%;
+                        padding: 0 10px;
+
+                        & + .rating-wrapper {
+                            border-top: none;
+                            border-left: 1px solid $custom_border_color;
+                        }
+                    }
+                }
+
+                @media screen and (min-width: 850px) {
+                    padding-right: 35px;
+
+                    .info-body {
+                        margin-left: 20px;
+                        padding-right: 35px;
+
+                        .watchlist {
+                            margin-left: auto;
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (min-width: 850px) {
+            display: flex;
+            flex-direction: row-reverse;
+
+            .sidebar {
+                width: 40%;
+
+                .movie-list {
+                    min-height: 80vh;
+                }
+            }
+
+            .main-body {
+                width: 60%;
+                min-height: 85vh;
+                padding-left: 35px;
+                border-left: 1px solid $custom_border_color;
+            }
+        }
+    }
+}
+
