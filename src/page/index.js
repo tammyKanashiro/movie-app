@@ -6,8 +6,8 @@ const thumbLeft = document.querySelector(".slider > .thumb.left");
 const thumbRight = document.querySelector(".slider > .thumb.right");
 const range = document.querySelector(".slider > .range");
 
-let y1 = document.getElementById('y1');
-let y2 = document.getElementById('y2');
+let year1 = document.getElementById('year1');
+let year2 = document.getElementById('year2');
 
 /* Search bar */
 const form = document.getElementById('form');
@@ -25,8 +25,6 @@ const bodyRating = document.getElementsByClassName('rating-section');
 const watchlist = document.getElementsByClassName('watchlist');
 let watchlistSaved = [];
 
-// const movieItem = document.getElementsByClassName('movieItem');
-
 /* Double range slider - left thumb */
 const setLeftValue = () => {
 	let min = parseInt(inputLeft.min);
@@ -39,7 +37,7 @@ const setLeftValue = () => {
 	thumbLeft.style.left = percent + "%";
 	range.style.left = percent + "%";
 
-    y1.textContent = inputLeft.value;
+    year1.textContent = inputLeft.value;
 }
 
 /* Double range slider - right thumb */
@@ -54,7 +52,7 @@ const setRightValue = () => {
 	thumbRight.style.right = (100 - percent) + "%";
 	range.style.right = (100 - percent) + "%";
 
-    y2.textContent = parseInt(inputRight.value);
+    year2.textContent = parseInt(inputRight.value);
 }
 
 setLeftValue();
